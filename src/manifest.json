@@ -1,0 +1,43 @@
+{
+  "description": "Extension helps to analyze and capture requests, as well as automate routine testing activities.",
+  "manifest_version": 3,
+  "name": "requestShark",
+  "version": "0.0.1",
+  "author": "Timofey Sobolev",
+  "homepage_url": "https://tsobolev.dev",
+  "icons": {
+    "48": "icons/star.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "requestShark@tsobolev.dev"
+    }
+  },
+  "background": {
+    "page": "background.html" 
+  },
+  "host_permissions":[
+    "*://*/*",
+    "<all_urls>"
+  ],
+  "permissions": [
+      "webRequest",
+      "devtools",
+      "activeTab",
+      "scripting",
+      "tabs",
+      "contextMenus",
+      "storage",
+      "alarms",
+      "nativeMessaging"
+  ],
+  "action": {
+    "default_icon": "icons/star.png",
+    "default_title": "requestShark",
+    "default_popup": "interface/popup.html"
+  },
+  "content_security_policy": {
+    "extension_pages": "default-src 'self' 'wasm-unsafe-eval'; script-src 'self' 'wasm-unsafe-eval'"
+  }
+}
+

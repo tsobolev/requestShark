@@ -1,0 +1,71 @@
+body {
+  padding: 0px;
+  margin: 0px;
+}
+.pre {
+  font-family: monospace;
+  white-space: pre-wrap;
+}
+.editable:focus {
+  outline: 0px solid transparent;
+}
+.editable {
+  font-family: monospace;
+  white-space: pre;
+}
+.grid-container {
+  padding: 0px;
+  margin: 0px;
+  display: grid;
+  gap: 2px;
+  /* grid-template-columns: 1fr 1fr;
+  grid-template-rows: 9fr 1fr; */
+  background-color: #aaaaaa;
+}
+.g1 {
+  background-color: white;
+  grid-column-start: 1;
+  grid-column-end: 1;
+}
+.g2 {
+  background-color: white;
+  grid-column-start: 2;
+  grid-column-end: 2;
+}
+.g3 {
+  background-color: white;
+  grid-column-start: 3;
+  grid-column-end: 3;
+}
+.g1-3 {
+  background-color: white;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.g1-4 {
+  background-color: white;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+.grid-left {
+  background-color: white;
+  grid-column-start: 1;
+  grid-column-end: 1;
+}
+.grid-right {
+  background-color: white;
+  grid-column-start: 2;
+  grid-column-end: 2;
+}
+.grid-bottom {
+  background-color: white;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.inputCorrect {
+  background-color: #eeffee;
+}
+.inputWrong {
+  background-color: #ffeeee;
+}

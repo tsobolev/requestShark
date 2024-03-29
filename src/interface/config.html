@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Config</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/default.css"/>
+    <script src="/global.js"></script>
+    <script src="/inc/dbfunct.js"></script>
+    <script src="./interface_base.js"></script>
+</head>
+<body>
+    <div class="grid-container">
+      <div class="grid-left editable" contenteditable="true" id="reqeust-analyzer-userscript">
+{
+  "variables": {},
+  "actions": [
+    {
+      "name": "Type Command One",
+      "event": "typeCommand1"
+    }
+  ],
+  "requests": [
+    {
+      "regex": "^http.?://httpbin.org/get$",
+      "handler": [
+        {
+          "fn": "save",
+          "args": {
+            "filter": "{'st': .response.status, 's': .source }",
+            "condition": "true"
+          }
+        }
+      ],
+      "enable": true
+    }
+  ],
+  "fsm": {
+    "init": "S0",
+    "transitions": {
+      "typeCommand1": {
+        "S3": {
+          "to": "S0",
+          "handler": {
+            "fn": "typeReal",
+            "args": {
+              "left": "60px",
+              "top": "254px",
+              "str": "Test string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
+      </div>
+      <div class="grid-right">
+        <div id="ESM"></div>
+      </div>
+      <div class="grid-bottom">
+        <button id="ok">OK</button>
+      </div>
+    </div>
+    <script type="module" src="./config.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Database</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/default.css"/>
+    <script src="/global.js"></script>
+    <script src="/inc/dbfunct.js"></script>
+    <script src="./interface_base.js"></script>
+</head>
+<body>
+    <div class="grid-container">
+      <div class="g1"><input id="packet" value="" placeholder="packetId or blank (full db)"></input></div>
+      <div class="g2">
+        <form id="jqForm"><input type="submit" value="filter"></form>
+      </div>
+      <div class="g1-3 editable" contenteditable="true" id="jqFilter" >#jq filter here
+.</div>
+      <div class="g1-3 pre" id="resultBox"></div>
+    </div>
+    <script src="./database.js"></script>
+</body>
+</html>
