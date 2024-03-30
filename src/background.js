@@ -98,7 +98,17 @@ async function setupContentScripts(){
     allFrames: false
   }
 
-  try { await browser.scripting.registerContentScripts([requests,fsm]) } 
+  try { 
+    console.log('register requests')
+    const result = await browser.scripting.registerContentScripts([requests]) 
+    console.log(result)
+  } 
+  catch (e) { console.error(`failed to register content scripts: ${e}`) }
+  try { 
+    console.log('register fsm')
+    const result = await browser.scripting.registerContentScripts([fsm]) 
+    console.log(result)
+  } 
   catch (e) { console.error(`failed to register content scripts: ${e}`) }
 
 }
@@ -155,6 +165,6 @@ let jq2
 const [updateBadge, resetBadge] = getUpdateBadge(databaseName,storageName)
 const mkb = getMkb()
 getJq()
-setupContentScripts()
+//setupContentScripts()
 setupMenu()
 setupMessageListener()

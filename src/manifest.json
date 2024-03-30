@@ -2,7 +2,7 @@
   "description": "Extension helps to analyze and capture requests, as well as automate routine testing activities.",
   "manifest_version": 3,
   "name": "requestShark",
-  "version": "0.0.1",
+  "version": "0.1.0.2",
   "author": "Timofey Sobolev",
   "homepage_url": "https://tsobolev.dev",
   "icons": {
@@ -16,6 +16,29 @@
   "background": {
     "page": "background.html" 
   },
+  "content_scripts": [
+  {
+    "js": [
+      "/contentjs/requests/request_base.js",
+      "/contentjs/requests/request_handlers.js"
+    ],
+    "matches": ["*://*/*"],
+    "runAt": "document_start",
+    "allFrames": true
+  },{
+    "js": [
+      "/evdev_input/baseFunct.js",
+      "/contentjs/fsm/sharedFunct.js",
+      "/contentjs/fsm/mkbHandlers.js",
+      "/contentjs/fsm/fakeHandlers.js",
+      "/contentjs/fsm/fsm_base.js",
+      "/contentjs/fsm/stateHandlers.js"
+    ],
+    "matches": ["*://*/*"],
+    "runAt": "document_start",
+    "allFrames": false
+  }
+  ],
   "host_permissions":[
     "*://*/*",
     "<all_urls>"
