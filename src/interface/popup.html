@@ -13,7 +13,23 @@
       <button id="database">Lookup</button>
       <button id="config">Config</button>
       <button id="state">State</button>
-    </div><hr>
+    </div>
+    <div>
+      <fieldset>
+        <legend>request capture options:</legend>
+
+        <div>
+          <input type="radio" id="capture1" name="capture" value="capture1" checked />
+          <label for="capture1">devtools panel</label>
+        </div>
+
+        <div>
+          <input type="radio" id="capture2" name="capture" value="capture2" />
+          <label for="capture2">xhr/fetch (experimental, reload tab!)</label>
+        </div>
+
+      </fieldset>
+    </div>
     <div id="actionsEl">
     </div>
     <script type="module" src="./popup.js"></script>

@@ -235,8 +235,23 @@ reloadRequestHandlers().then((F)=>{
   urlFilter = F
 })
 
-patchFetchF()
-patchXhrF()
+async function localStorage_get(name){
+  const result = await browser.storage.sync.get(name)
+  return result[name]
+}
+async function localStorage_set(obj){
+  await browser.storage.sync.set(obj)
+}
+async function isMonkeyPatch(){
+  const isMonkeyPatch = await localStorage_get("isMonkeyPatch")
+  if(isMonkeyPatch){
+    bglog('monkeyPatch!')
+    patchFetchF()
+    patchXhrF()
+  }
+}
+
+isMonkeyPatch()
 
 browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === 'updateUserscript') {

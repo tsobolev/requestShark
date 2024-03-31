@@ -155,15 +155,15 @@ function onMessageF_mkb(args){
   return mkb(request.mkb)
 }
 
-/*
-async function onMessageF_saveraw(args){
+
+async function onMessageF_request_saveraw(args){
   const {request,sender,sendResponse} = args
   const data = request.data 
   if(typeof(data) != 'object') data = [data]
   await saveRecord(data)
   updateBadge()
 }
-*/
+
 
 function onMessageF_logs(args){
   const {request,sender,sendResponse} = args

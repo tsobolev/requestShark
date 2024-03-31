@@ -74,5 +74,39 @@ bindTabOnClick('calibration', interfacePath + 'calibration.html')
 bindDownloadButton('download',databaseName,storageName)
 addActionButtons('actionsEl')
 
+async function localStorage_get(name){
+  const result = await browser.storage.sync.get(name)
+  return result[name]
+}
+async function localStorage_set(obj){
+  await browser.storage.sync.set(obj)
+}
+
+async function updateCaptureOption() {
+  const isMonkeyPatch = await localStorage_get("isMonkeyPatch");
+  if (isMonkeyPatch) {
+    document.getElementById("capture2").checked = true;
+  } else {
+    document.getElementById("capture1").checked = true;
+  }
+}
+
+updateCaptureOption();
+
+document.querySelectorAll('input[type="radio"]').forEach(radio => {
+  radio.addEventListener('change', async () => {
+    if (radio.checked) {
+      if (radio.value === "capture2") {
+        await setMonkeyPatchOption(true);
+      } else {
+        await setMonkeyPatchOption(false);
+      }
+    }
+  });
+});
+
+async function setMonkeyPatchOption(value) {
+  await localStorage_set({ "isMonkeyPatch": value });
+}
 
 

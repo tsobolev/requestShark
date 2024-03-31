@@ -44,6 +44,7 @@
     "<all_urls>"
   ],
   "permissions": [
+      "devtools",
       "webRequest",
       "devtools",
       "activeTab",
@@ -54,6 +55,7 @@
       "alarms",
       "nativeMessaging"
   ],
+  "devtools_page": "devtools_page.html",
   "action": {
     "default_icon": "icons/star.png",
     "default_title": "requestShark",
